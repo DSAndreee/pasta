@@ -21,18 +21,8 @@ class PastaM extends Neo\Model {
     public function create_paste($title, $content)
     {
 
-      $res = 1;
-      while (!empty($res))
-      {
-        //Generate a unique hash
-        $hash = sha1(time().$content);
-
-        //Check if not in DB
-        $query = $this->db->prepare('SELECT id FROM pastes WHERE hash = :hash');
-        $query->bindValue('hash', $hash);
-        $query->execute();
-        $res = $query->fetch();
-      }
+      //Generate a unique hash
+      $hash = sha1(time().$content);
 
       //Insert into DB
       $query = $this->db->prepare('INSERT INTO pastes VALUES (:hash, :title, :content, :visibility)');
