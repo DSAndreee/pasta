@@ -21,10 +21,10 @@ class PastaC extends Neo\Controller {
         if (!empty($_POST['title']) and !empty($_POST['content']))
         {
           $model = new PastaM();
-          $paste = $model->create_paste($_POST['title'], $_POST['content']);
-          if (!empty($paste))
+          $hash = $model->create_paste($_POST['title'], $_POST['content']);
+          if (!empty($hash))
           {
-            header('Location: ?hash='.$paste['hash']);
+            header('Location: ?hash='.$hash);
           }
         }
         return $this->document
