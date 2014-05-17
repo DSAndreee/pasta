@@ -16,23 +16,49 @@ class PastaC extends Neo\Controller {
         return $this->editbox();
     }
 
-    public function editbox()
+    ///
+    /// Handle a paste request.
+    ///
+    public function paste()
     {
-        if (!empty($_POST['title']) and !empty($_POST['content']))
-        {
-          $model = new PastaM();
-          $hash = $model->create_paste($_POST['title'], $_POST['content']);
-          if (!empty($hash))
-          {
-            header('Location: ?hash='.$hash);
-          }
+        // escape html
+        $title = htmlspecialchars($this->match['request']['title']);
+        $content = htmlspecialchars($this->match['request']['content']);
+
+        // save to db
+        $model = new PastaM();
+        $hash = $model->create_paste($title, $content);
+        if ($hash === null) {
+            // on failure go back to editbox
+            return $this->editbox();
         }
         return $this->document
             ->append_view(Neo\id(new TextboxV())
-                ->editbox())
+                ->assign('url', 'https://pad.eliteheberg.fr/?hash=' . $hash)
+                ->url())
+            ->append_view(Neo\id(new HeaderV())
+                ->assign('page_title', 'Your Pasta has been created avec successzz!')
+                ->entete(), 'header')
             ->render();
     }
 
+    ///
+    /// Display a text edit field.
+    ///
+    public function editbox()
+    {
+        return $this->document
+            ->append_view(Neo\id(new TextboxV())
+                ->editbox())
+            ->append_view(Neo\id(new HeaderV())
+                ->assign('page_title', 'New Pasta')
+                ->entete(), 'header')
+            ->render();
+    }
+
+    ///
+    /// Display a paste.
+    ///
     public function readbox()
     {
         $hash = $this->match['request']['hash'];
