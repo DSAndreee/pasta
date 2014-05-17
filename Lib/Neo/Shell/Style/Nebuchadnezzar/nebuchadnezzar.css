@@ -1,0 +1,12 @@
+/* Nebuchadnezzar */
+body{
+    color:#aaa;
+    background-color:#111;
+    font-family:helvetica;
+    margin:0;
+    padding:0;
+}
+h1{font-size:3em;color:#9f0;}
+h2{color:#ddd;}
+h3,h4,h5,h6{color:#888;}
+p{font-size:1.1em;}
