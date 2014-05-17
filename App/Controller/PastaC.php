@@ -18,6 +18,15 @@ class PastaC extends Neo\Controller {
 
     public function editbox()
     {
+        if (!empty($_POST['title']) and !empty($_POST['content']))
+        {
+          $model = new PastaM();
+          $paste = $model->create_paste($_POST['title'], $_POST['content']);
+          if (!empty($paste))
+          {
+            header('Location: ?hash='.$paste['hash']);
+          }
+        }
         return $this->document
             ->append_view(Neo\id(new TextboxV())
                 ->editbox())
