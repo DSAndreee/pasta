@@ -20,7 +20,8 @@ class PastaC extends Neo\Controller {
     {
         return $this->document
             ->append_view(Neo\id(new TextboxV())
-            ->editbox());
+                ->editbox())
+            ->render();
     }
 
     public function readbox()
@@ -35,8 +36,8 @@ class PastaC extends Neo\Controller {
                 ->assign('paste', $paste))
             ->append_view(Neo\id(new HeaderV())
                 ->assign('page_title', $paste['title'])
-                ->entete(), 'header');
+                ->entete(), 'header')
+            ->render();
     }
 
 }
-
