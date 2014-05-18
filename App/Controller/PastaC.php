@@ -19,6 +19,29 @@ class PastaC extends Neo\Controller {
     ///
     /// Handle a paste request.
     ///
+    public function url_to_hash($hash)
+    {
+        $isHttps = (array_key_exists('HTTPS', $_SERVER) && $_SERVER['HTTPS']) || (array_key_exists('HTTP_X_FORWARDED_PROTO', $_SERVER) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https');
+        $url = 'http'.($isHttps ? 's' : '').'://'.$_SERVER['SERVER_NAME'];
+        if (!$isHttps)
+        {
+            if ($_SERVER['SERVER_PORT'] != 80)
+            {
+                $url .= ':'.$_SERVER['SERVER_PORT'];
+            }
+        }
+        else
+        {
+            if ($_SERVER['SERVER_PORT'] != 443)
+            {
+                $url .= ':'.$_SERVER['SERVER_PORT'];
+            }
+        }
+        $url .= $_SERVER['REQUEST_URI'];
+        $url .= '?hash='.$hash;
+        return $url;
+    }
+
     public function paste()
     {
         // escape html
@@ -34,7 +57,7 @@ class PastaC extends Neo\Controller {
         }
         return $this->document
             ->append_view(Neo\id(new TextboxV())
-                ->assign('url', 'https://pad.eliteheberg.fr/?hash=' . $hash)
+                ->assign('url', $this->url_to_hash($hash))
                 ->url())
             ->append_view(Neo\id(new HeaderV())
                 ->assign('page_title', 'Your Pasta has been created avec successzz!')
