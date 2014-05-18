@@ -38,7 +38,8 @@ class PastaC extends Neo\Controller {
             }
         }
         $url .= $_SERVER['REQUEST_URI'];
-        $url .= '?hash='.$hash;
+        $url = str_replace($_SERVER["QUERY_STRING"], '', $url);
+        $url .= 'hash='.$hash;
         return $url;
     }
 
