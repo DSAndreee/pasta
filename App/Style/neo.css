@@ -22,12 +22,12 @@ textarea.content{
     display: none;
 }
 
-.editor{
+#editor{
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0;
+    left: 70px;
 }
 .pastebtn{
     position: absolute;
@@ -40,4 +40,25 @@ textarea.content{
     background-color: #313131;
     border-radius: 5px;
     color: #999;
+    text-shadow: 0 0 4px;
+    font-size: 0.75em;
+}
+
+.footer {
+    background-color: #1a1a1a;
+    color: #CCC;
+    width: 100%;
+    height: 25px;
+    position: fixed;
+    bottom: 0px;
+    left: 70px;
+    z-index: 50;
+    text-shadow: 0 0 4px;
+    font-size: 0.75em;
+    text-align: center;
+}
+
+.aright {
+    float: right;
+    margin-right: 75px;
 }
