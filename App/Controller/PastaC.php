@@ -16,23 +16,20 @@ class PastaC extends Neo\Controller {
         return $this->editbox();
     }
 
-    ///
-    /// Handle a paste request.
-    ///
     protected function hash_to_url_to_paste($hash)
     {
         $is_https = (array_key_exists('HTTPS', $_SERVER) && $_SERVER['HTTPS']) || (array_key_exists('HTTP_X_FORWARDED_PROTO', $_SERVER) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https');
         $url = 'http'.($is_https ? 's' : '').'://'.$_SERVER['SERVER_NAME'];
         if (!$is_https)
         {
-            if ($_SERVER['SERVER_PORT'] !== 80)
+            if ($_SERVER['SERVER_PORT'] != 80)
             {
                 $url .= ':'.$_SERVER['SERVER_PORT'];
             }
         }
         else
         {
-            if ($_SERVER['SERVER_PORT'] !== 443)
+            if ($_SERVER['SERVER_PORT'] != 443)
             {
                 $url .= ':'.$_SERVER['SERVER_PORT'];
             }
@@ -43,6 +40,9 @@ class PastaC extends Neo\Controller {
         return $url;
     }
 
+    ///
+    /// Handle a paste request.
+    ///
     public function paste()
     {
         // escape html
