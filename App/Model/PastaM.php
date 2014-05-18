@@ -39,4 +39,15 @@ class PastaM extends Neo\Model {
         return $hash;
     }
 
+    ///
+    /// Destroy paste by id or hash.
+    ///
+    public function destroy_paste($id_or_hash)
+    {
+        $sql = 'DELETE FROM pastes WHERE ' . (is_int($id_or_hash) ? 'id' : 'hash') . '=?';
+        $data = array($id_or_hash);
+        $query = $this->db->prepare($sql);
+        return $query->execute($data);
+    }
+
 }
