@@ -29,10 +29,8 @@ class PastaC extends Neo\Controller {
     ///
     public function paste()
     {
-        $content = (string)$this->match['request']['content'];
-        
         // check if content request is not empty
-        if (empty($content)) {
+        if (Neo\blank($content = (string)$this->match['request']['content'])) {
             return $this->editbox();
         }
 
