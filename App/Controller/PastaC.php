@@ -67,6 +67,7 @@ class PastaC extends Neo\Controller {
                 ->entete()
                 ->paste(), 'header')
             ->append_view(Neo\id(new FooterV())
+                ->assign('hash', '')
                 ->footer(), 'footer')
             ->render();
     }
@@ -98,6 +99,7 @@ class PastaC extends Neo\Controller {
                 ->fork()
                 ->entete(), 'header')
             ->append_view(Neo\id(new FooterV())
+                ->assign('hash', $hash)
                 ->footer(), 'footer')
             ->render();
     }
