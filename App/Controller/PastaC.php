@@ -66,9 +66,8 @@ class PastaC extends Neo\Controller {
 
     public function paste()
     {
-        // escape html
-        $title = htmlspecialchars($this->match['request']['title']);
-        $content = htmlspecialchars($this->match['request']['content']);
+        $title = $this->match['request']['title'];
+        $content = $this->match['request']['content'];
 
         // save to db
         $model = new PastaM();
@@ -115,6 +114,10 @@ class PastaC extends Neo\Controller {
         $model = new PastaM();
         $paste = $model->get_paste($hash);
 
+        // escape html, replace special entities, and replace newlines as well as spaces with br tags and nbsp entities.
+        $paste['content'] = nl2br(htmlspecialchars(htmlentities(str_replace(' ', '&nbsp;', $paste['content']))));
+        $paste['title'] = nl2br(htmlspecialchars(htmlentities(str_replace(' ', '&nbsp;', $paste['title']))));
+
         return $this->document
             ->append_view(Neo\id(new TextboxV())
                 ->readbox()
@@ -135,6 +138,8 @@ class PastaC extends Neo\Controller {
         $hash = $this->match['request']['raw'];
         $model = new PastaM();
         $paste = $model->get_paste($hash);
+
+        header('Content-Type: text/plain; charset=UTF-8');
 
         return $this->document
             ->append_view(Neo\id(new TextboxV())
