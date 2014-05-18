@@ -32,13 +32,14 @@
 <body>
     <div id="navleft">
         <?php
-        if (empty($this->values['paste']['hash']))
+        if (empty($this->values['hash']))
         {
             echo '<a href="#" onClick="save()" class="navbtn">Paste</a>';
         }
         else
         {
-            echo "<a href=\"?fork=".$this->values['paste']['hash']."\" class=\"navbtn\">Fork</a><a href=\"?raw=".$this->values['paste']['hash']."\" onClick=\"raw()\" class=\"navbtn\">Raw</a>";
+            echo "<a href=\"?fork=".$this->values['hash']."\" class=\"navbtn\">Fork</a>
+            <a href=\"?raw=".$this->values['hash']."\" onClick=\"raw()\" class=\"navbtn\">Raw</a>";
         }
         ?>
     </div>
