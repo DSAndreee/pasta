@@ -113,4 +113,17 @@ function loadLang() {
     editor.setOption("mode", lang);
     CodeMirror.autoLoadMode(editor, lang);
 }
+
+function save() {
+
+}
+
+function fork() {
+
+}
+
+function raw() {
+
+}
+
 </script>

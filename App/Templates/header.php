@@ -32,7 +32,7 @@
 <body>
     <div id="navleft">
         <a href="#" onClick="save()" class="navbtn">Paste</a>
-        <a href="#" onClick="fork()" class="navbtn">Fork</a>
-        <a href="#" onClick="raw()" class="navbtn">Raw</a>
+        <a href="?fork=<?php echo $this->values['paste']['hash']; ?>" class="navbtn">Fork</a>
+        <a href="?raw=<?php echo $this->values['paste']['hash']; ?>" onClick="raw()" class="navbtn">Raw</a>
     </div>
     <div id="editor"></div>
