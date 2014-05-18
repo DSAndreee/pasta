@@ -13,11 +13,21 @@ var editor = CodeMirror(document.getElementById('editor'), {
     lineNumbers: true,
     lineWrapping: true,
     styleActiveLine: true,
-    mode: "php",
+    mode: "application/x-httpd-php",
+    indentUnit: 4,
+    indentWithTabs: false,
     keyMap: "sublime",
     autoCloseBrackets: true,
     matchBrackets: true,
     showCursorWhenSelecting: true,
     theme: "monokai"
 });
+
+CodeMirror.modeURL = 'Vendor/CodeMirror/mode/%N/%N.js';
+
+function loadLang() {
+    var lang = document.getElementById('lang').value;
+    editor.setOption("mode", lang);
+    CodeMirror.autoLoadMode(editor, lang);
+}
 </script>
