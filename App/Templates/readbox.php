@@ -1,17 +1,8 @@
-<h1>
 <?php
 if ($this->blank('paste')) {
-    echo 'Dat pasta iz no existingz';
+    echo '<h1>Dat pasta iz no existingz.</h1>';
 }
 else {
-    echo $this->values['paste']['title'];
+    echo '<div class="readbox">' . $this->values['paste']['content'] . '</div>';
 }
 ?>
-</h1>
-<div class="readbox">
-<?php
-if (!$this->blank('paste')) {
-    echo $this->values['paste']['content'];
-}
-?>
-</div>

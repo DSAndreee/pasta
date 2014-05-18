@@ -66,12 +66,11 @@ class PastaC extends Neo\Controller {
 
     public function paste()
     {
-        $title = $this->match['request']['title'];
-        $content = $this->match['request']['content'];
+        $content = (string)$this->match['request']['content'];
 
         // save to db
         $model = new PastaM();
-        $hash = $model->create_paste($title, $content);
+        $hash = $model->create_paste($content);
         if ($hash === null) {
             // on failure go back to editbox
             return $this->editbox();
@@ -98,7 +97,7 @@ class PastaC extends Neo\Controller {
             ->append_view(Neo\id(new TextboxV())
                 ->editbox())
             ->append_view(Neo\id(new HeaderV())
-                ->assign('page_title', 'New Pasta')
+                ->assign('page_title', 'Newz')
                 ->entete(), 'header')
             ->append_view(Neo\id(new FooterV())
                 ->footer(), 'footer')
@@ -114,16 +113,19 @@ class PastaC extends Neo\Controller {
         $model = new PastaM();
         $paste = $model->get_paste($hash);
 
-        // escape html, replace special entities, and replace newlines as well as spaces with br tags and nbsp entities.
-        $paste['content'] = nl2br(htmlspecialchars(htmlentities(str_replace(' ', '&nbsp;', $paste['content']))));
-        $paste['title'] = nl2br(htmlspecialchars(htmlentities(str_replace(' ', '&nbsp;', $paste['title']))));
+        $textbox = new TextboxV();
+        $textbox->readbox();
+
+        if ($paste !== null) {
+            // escape html, replace special entities, and replace newlines as well as spaces with br tags and nbsp entities.
+            $paste['content'] = str_replace(' ', '&nbsp;', nl2br(htmlspecialchars(htmlentities($paste['content']))));
+            $textbox->assign('paste', $paste);
+        }
 
         return $this->document
-            ->append_view(Neo\id(new TextboxV())
-                ->readbox()
-                ->assign('paste', $paste))
+            ->append_view($textbox)
             ->append_view(Neo\id(new HeaderV())
-                ->assign('page_title', $paste['title'])
+                ->assign('page_title', 'Do what you want \'cause a pirate is free. You are a pirate.')
                 ->entete(), 'header')
             ->append_view(Neo\id(new FooterV())
                 ->footer(), 'footer')

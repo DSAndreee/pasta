@@ -6,7 +6,6 @@ CREATE TABLE IF NOT EXISTS `pastes` (
 `id` int(11) NOT NULL,
   `hash` varchar(40) NOT NULL,
   `created_on` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `title` varchar(150) NOT NULL,
   `content` text NOT NULL,
   `visibility` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

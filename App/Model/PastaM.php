@@ -21,9 +21,9 @@ class PastaM extends Neo\Model {
     ///
     /// Add a paste to the database and return the hash.
     ///
-    public function create_paste($title, $content)
+    public function create_paste($content)
     {
-        $sql = 'INSERT INTO pastes (hash, title, content, visibility) VALUES (:hash, :title, :content, :visibility)';
+        $sql = 'INSERT INTO pastes (hash, content, visibility) VALUES (:hash, :content, :visibility)';
 
         // generate a hash
         $hash = sha1(time() . $content);
@@ -31,7 +31,6 @@ class PastaM extends Neo\Model {
         // insert into db
         $query = $this->db->prepare($sql);
         $query->bindValue('hash', $hash);
-        $query->bindValue('title', $title);
         $query->bindValue('content', $content);
         $query->bindValue('visibility', 0, PDO::PARAM_INT);
         if ($query->execute() === false) {

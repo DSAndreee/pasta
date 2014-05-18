@@ -1,13 +1,13 @@
 /*
  * Awesome style :P
-*/
+ */
 
-body {
+body{
     background-color: #000000;
     margin: 0;
 }
 
-.navleft {
+.navleft{
     background-color: #1a1a1a;
     width: 70px;
     height: 100%;
@@ -18,18 +18,18 @@ body {
     z-index: 50;
 }
 
-textarea.content {
+textarea.content{
     display: none;
 }
 
-.editor {
+.editor{
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
 }
-.pastebtn {
+.pastebtn{
     position: absolute;
     left: 10px;
     top: 10px;
