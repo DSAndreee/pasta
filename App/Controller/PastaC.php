@@ -29,7 +29,10 @@ class PastaC extends Neo\Controller {
     ///
     public function paste()
     {
-        $content = (string)$this->match['request']['content'];
+        // check if content request is not empty
+        if (Neo\blank($content = (string)$this->match['request']['content'])) {
+            return $this->editbox();
+        }
 
         // save to db
         $model = new PastaM();
