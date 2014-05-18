@@ -93,7 +93,7 @@ class PastaC extends Neo\Controller {
             ->append_view($textbox)
             ->append_view(Neo\id(new HeaderV())
                 ->assign('page_title', 'Do what you want \'cause a pirate is free. You are a pirate.')
-                ->assign('hash', $paste['hash'])
+                ->assign('hash', $hash)
                 ->raw()
                 ->fork()
                 ->entete(), 'header')
