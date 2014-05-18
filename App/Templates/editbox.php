@@ -1,8 +1,6 @@
-<div class="textbox">
+<div>
 <form method="post" action="?action=paste">
-    Title:<input type="text" name="title"/><br>
-    Code:<br>
-<textarea name="content"></textarea>
-<input type="submit" value="Paste">
+<textarea class="content" name="content"></textarea>
+<input class="pastebtn" type="submit" value="Paste">
 </form>
 </div>
