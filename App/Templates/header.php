@@ -30,16 +30,3 @@
     <script src="Vendor/CodeMirror/keymap/sublime.js"></script>
 </head>
 <body>
-    <div id="navleft">
-        <?php
-        if (empty($this->values['paste']['hash']))
-        {
-            echo '<a href="#" onClick="save()" class="navbtn">Paste</a>';
-        }
-        else
-        {
-            echo "<a href=\"?fork=".$this->values['paste']['hash']."\" class=\"navbtn\">Fork</a><a href=\"?raw=".$this->values['paste']['hash']."\" onClick=\"raw()\" class=\"navbtn\">Raw</a>";
-        }
-        ?>
-    </div>
-    <div id="editor"></div>
