@@ -115,15 +115,9 @@ function loadLang() {
 }
 
 function save() {
-
-}
-
-function fork() {
-
-}
-
-function raw() {
-
+    document.getElementById('pastecontent').value = editor.getValue();
+    //submit the form
+    document.forms.paste.submit();
 }
 
 </script>
