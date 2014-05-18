@@ -25,7 +25,7 @@
 
 </head>
 <body>
-    <div class="navleft">
+    <div id="navleft">
         <a href="#" onClick="save()" class="navbtn">Paste</a>
         <a href="#" onClick="fork()" class="navbtn">Fork</a>
         <a href="#" onClick="raw()" class="navbtn">Raw</a>

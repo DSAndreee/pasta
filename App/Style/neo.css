@@ -7,7 +7,7 @@ body{
     margin: 0;
 }
 
-.navleft{
+#navleft{
     background-color: #1a1a1a;
     width: 70px;
     height: 100%;
@@ -44,7 +44,7 @@ textarea.content{
     font-size: 0.75em;
 }
 
-.footer {
+#footer {
     background-color: #1a1a1a;
     color: #CCC;
     width: 100%;
