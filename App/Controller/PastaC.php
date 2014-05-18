@@ -121,4 +121,20 @@ class PastaC extends Neo\Controller {
             ->render();
     }
 
+    ///
+    /// Display a paste.
+    ///
+    public function raw()
+    {
+        $hash = $this->match['request']['raw'];
+        $model = new PastaM();
+        $paste = $model->get_paste($hash);
+
+        return $this->document
+            ->append_view(Neo\id(new TextboxV())
+                ->raw()
+                ->assign('paste', $paste))
+            ->render();
+    }
+
 }
