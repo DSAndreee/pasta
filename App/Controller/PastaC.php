@@ -85,6 +85,8 @@ class PastaC extends Neo\Controller {
             ->append_view(Neo\id(new HeaderV())
                 ->assign('page_title', 'Your Pasta has been created avec successzz!')
                 ->entete(), 'header')
+            ->append_view(Neo\id(new FooterV())
+                ->footer(), 'footer')
             ->render();
     }
 
@@ -99,6 +101,8 @@ class PastaC extends Neo\Controller {
             ->append_view(Neo\id(new HeaderV())
                 ->assign('page_title', 'New Pasta')
                 ->entete(), 'header')
+            ->append_view(Neo\id(new FooterV())
+                ->footer(), 'footer')
             ->render();
     }
 
@@ -118,6 +122,8 @@ class PastaC extends Neo\Controller {
             ->append_view(Neo\id(new HeaderV())
                 ->assign('page_title', $paste['title'])
                 ->entete(), 'header')
+            ->append_view(Neo\id(new FooterV())
+                ->footer(), 'footer')
             ->render();
     }
 
