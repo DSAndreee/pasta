@@ -29,7 +29,7 @@ class HeaderV extends Neo\View {
     ///
     public function fork()
     {
-        return $this->append_code('<a href="?fork="' . $this->values['paste']['hash'] . '\" class="navbtn">Fork</a>', 'fork');
+        return $this->append_code('<a href="?fork="' . $this->values['hash'] . '\" class="navbtn">Fork</a>', 'fork');
     }
 
     ///
@@ -45,7 +45,7 @@ class HeaderV extends Neo\View {
     ///
     public function raw()
     {
-        return $this->append_code('<a href="?raw="' . $this->values['paste']['hash'] . '" onClick="raw()" class="navbtn">Raw</a>', 'raw');
+        return $this->append_code('<a href="?raw="' . $this->values['hash'] . '" onClick="raw()" class="navbtn">Raw</a>', 'raw');
     }
 
 }
