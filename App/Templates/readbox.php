@@ -12,7 +12,6 @@ else {
 <?php
 if (!$this->blank('paste')) {
     echo $this->values['paste']['content'];
-} 
+}
 ?>
 </div>
-
