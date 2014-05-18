@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="Vendor/CodeMirror/theme/monokai.css">
 
     <script src="Vendor/CodeMirror/addon/mode/loadmode.js"></script>
+    <script src="Vendor/CodeMirror/addon/mode/overlay.js"></script>
     <!--editor search and replace dialogs-->
     <script src="Vendor/CodeMirror/addon/search/searchcursor.js"></script>
     <script src="Vendor/CodeMirror/addon/search/search.js"></script>
