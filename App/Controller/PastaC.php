@@ -124,7 +124,7 @@ class PastaC extends Neo\Controller {
 
     ///
     /// Return complete URL to page without GET arguments.
-    /// eg. https://pad.eliteheberg.fr:9000
+    /// eg. "https://pad.eliteheberg.fr:9000/"
     ///
     protected function complete_url()
     {
@@ -142,7 +142,7 @@ class PastaC extends Neo\Controller {
             }
         }
         $url .= $_SERVER['REQUEST_URI'];
-        $url = str_replace($_SERVER['QUERY_STRING'], '', $url);
+        $url = str_replace('?' . $_SERVER['QUERY_STRING'], '', $url);
         return $url;
     }
 
