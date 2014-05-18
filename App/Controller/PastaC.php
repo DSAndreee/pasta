@@ -43,6 +43,33 @@ class PastaC extends Neo\Controller {
         return $url;
     }
 
+    ///
+    /// Handle a paste request.
+    ///
+    protected function hash_to_rawurl_to_paste($hash)
+    {
+        $is_https = (array_key_exists('HTTPS', $_SERVER) && $_SERVER['HTTPS']) || (array_key_exists('HTTP_X_FORWARDED_PROTO', $_SERVER) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https');
+        $url = 'http'.($is_https ? 's' : '').'://'.$_SERVER['SERVER_NAME'];
+        if (!$is_https)
+        {
+            if ($_SERVER['SERVER_PORT'] !== 80)
+            {
+                $url .= ':'.$_SERVER['SERVER_PORT'];
+            }
+        }
+        else
+        {
+            if ($_SERVER['SERVER_PORT'] !== 443)
+            {
+                $url .= ':'.$_SERVER['SERVER_PORT'];
+            }
+        }
+        $url .= $_SERVER['REQUEST_URI'];
+        $url = str_replace($_SERVER["QUERY_STRING"], '', $url);
+        $url .= 'raw='.$hash;
+        return $url;
+    }
+
     public function paste()
     {
         // escape html
@@ -59,6 +86,7 @@ class PastaC extends Neo\Controller {
         return $this->document
             ->append_view(Neo\id(new TextboxV())
                 ->assign('url', $this->hash_to_url_to_paste($hash))
+                ->assign('rawurl', $this->hash_to_rawurl_to_paste($hash))
                 ->url())
             ->append_view(Neo\id(new HeaderV())
                 ->assign('page_title', 'Your Pasta has been created avec successzz!')

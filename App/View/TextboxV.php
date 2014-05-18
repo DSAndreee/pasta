@@ -10,6 +10,14 @@ class TextboxV extends Neo\View {
     }
 
     ///
+    /// RAW view
+    ///
+    public function raw()
+    {
+        return $this->append_template('raw.php');
+    }
+
+    ///
     /// Read-only text box
     ///
     public function readbox()
