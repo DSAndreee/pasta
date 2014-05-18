@@ -58,6 +58,7 @@ function boot($config_dir = '../Config/')
     require_once $_NEO['PATHS']['LIB_DIR'] . 'Neo/Core/Misc/sql_datetime.php';
     require_once $_NEO['PATHS']['LIB_DIR'] . 'Neo/Core/Misc/vardump.php';
     require_once $_NEO['PATHS']['LIB_DIR'] . 'Neo/Core/Misc/array_crop.php';
+    require_once $_NEO['PATHS']['LIB_DIR'] . 'Neo/Core/Misc/blank.php';
 
     // append debug messages to journal
     foreach ($debug as $msg) neo($msg);
