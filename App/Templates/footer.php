@@ -1,4 +1,4 @@
-<div class="footer">
+<div id="footer">
     Pasta &mdash; A pastebin for elite coders by <a href="mailto:fabienwang@eliteheberg.fr">Fabien Wang</a> &amp;&amp; <a href="mailto:younishd@eliteheberg.fr">YouniS Bensalah</a>
     <span class="aright">
         <!-- Language list goes here -->
