@@ -87,8 +87,9 @@ class PastaC extends Neo\Controller {
 
         if ($paste !== null) {
             // escape html, replace special entities, and replace newlines as well as spaces with br tags and nbsp entities.
-            $paste['content'] = str_replace(' ', '&nbsp;', nl2br(htmlspecialchars(htmlentities($paste['content']))));
-            $textbox->assign('paste', $paste);
+            //$paste['content'] = str_replace(' ', '&nbsp;', nl2br(htmlspecialchars(htmlentities($paste['content']))));
+            $textbox->assign('paste', $paste)
+                ->render_once();
         }
 
         return $this->document

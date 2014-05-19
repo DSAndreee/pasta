@@ -35,6 +35,7 @@ abstract class View {
         $this->code = '';
         $this->values = is_array($data) ? $data : array();
         $this->flags = array();
+        $this->render_once = false;
 
         // init markers
         $this->init_default_marker();
@@ -79,12 +80,17 @@ abstract class View {
 
                     case 'php':
                     ob_start();
-                    do {
-                        eval('?>' . $c['code']);
-                        $c['code'] = ob_get_contents();
-                        ob_clean();
-                    } while (strpos($c['code'], '<?php') !== false);
+                    eval('?>' . $c['code']);
+                    $c['code'] = ob_get_contents();
+                    if ($this->render_once === false) {
+                        while (strpos($c['code'], '<?php') !== false) {
+                            ob_clean();
+                            eval('?>' . $c['code']);
+                            $c['code'] = ob_get_contents();
+                        }
+                    }
                     $this->code .= $c['code'];
+                    ob_end_clean();
                     break;
 
                     case 'md':
@@ -105,6 +111,14 @@ abstract class View {
         } while (($marker = $marker->next()) !== null);
 
         return $this->code;
+    }
+
+    ///
+    /// Toggle render only once. This only affects PHP code.
+    ///
+    public function render_once($value = true)
+    {
+        $this->render_once = (bool)$value;
     }
 
     ///
@@ -274,5 +288,10 @@ abstract class View {
     /// Array of methods that will get called just before rendering.
     ///
     protected $flags;
+
+    ///
+    /// Render only once
+    ///
+    protected $render_once;
 
 }
