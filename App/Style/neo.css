@@ -65,7 +65,7 @@ a.navbtn:hover {
     background-color: #101010;
 }
 
-textarea.content{
+.hidden {
     display: none;
 }
 
