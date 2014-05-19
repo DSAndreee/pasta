@@ -21,7 +21,26 @@ class PastaC extends Neo\Controller {
     ///
     public function fork()
     {
+        $hash = $this->match['request']['fork'];
+        $model = new PastaM();
+        $paste = $model->get_paste($hash);
 
+        $textbox = new TextboxV();
+        $textbox->editbox();
+
+        if ($paste['content'] !== null) {
+            $textbox->assign('content', $paste['content']);
+        }
+
+        return $this->document
+            ->append_view($textbox)
+            ->append_view(Neo\id(new HeaderV())
+                ->assign('page_title', 'Forkz')
+                ->entete()
+                ->paste(), 'header')
+            ->append_view(Neo\id(new FooterV())
+                ->footer(), 'footer')
+            ->render();
     }
 
     ///
@@ -59,7 +78,6 @@ class PastaC extends Neo\Controller {
                 ->entete()
                 ->paste(), 'header')
             ->append_view(Neo\id(new FooterV())
-                ->assign('hash', '')
                 ->footer(), 'footer')
             ->render();
     }
