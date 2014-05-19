@@ -115,13 +115,13 @@ class PastaC extends Neo\Controller {
         $model = new PastaM();
         $paste = $model->get_paste($hash);
 
-        header('Content-Type: text/plain; charset=UTF-8');
+        if (empty($paste['content'])) {
+            return $this->editbox();
+        }
 
-        return $this->document
-            ->append_view(Neo\id(new TextboxV())
-                ->raw()
-                ->assign('paste', $paste))
-            ->render();
+        // just return the raw code directly!
+        header('Content-Type: text/plain; charset=UTF-8');
+        return $paste['content'];
     }
 
     ///
