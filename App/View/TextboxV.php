@@ -6,7 +6,7 @@ class TextboxV extends Neo\View {
     ///
     public function editbox()
     {
-        return $this->append_template('editbox.php');
+        return $this->append_template('editbox.php')->render_once();
     }
 
     ///
