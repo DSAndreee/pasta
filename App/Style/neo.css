@@ -3,18 +3,24 @@
  */
 
 body{
-    background-color: #000000;
+    background-color: #1A1A1A;
     margin: 0;
 }
 
 #navleft{
-    background-color: #1a1a1a;
     width: 70px;
-    height: 100%;
     position: fixed;
     top: 0px;
     left: 0px;
+    z-index: 50;
+    text-align: center;
+}
+
+#navleftbottom {
+    width: 70px;
+    position: fixed;
     bottom: 0px;
+    left: 0px;
     z-index: 50;
     text-align: center;
 }
@@ -59,7 +65,7 @@ a.navbtn:hover {
     background-color: #101010;
 }
 
-textarea.content{
+.hidden {
     display: none;
 }
 

@@ -13,7 +13,7 @@ class HeaderV extends Neo\View {
         // - fork
         // - raw
         // - editor
-        $this->add_marker('editor')->add_marker('raw')->add_marker('fork')->add_marker('paste')->add_marker('new');
+        $this->add_marker('editor')->add_marker('bottomlinks')->add_marker('raw')->add_marker('fork')->add_marker('paste')->add_marker('new');
     }
 
     public function entete()
@@ -21,6 +21,7 @@ class HeaderV extends Neo\View {
         return $this
             ->append_template('header.php')
             ->append_code('<div id="navleft">')
+            ->append_code('</div><div id="navleftbottom">', 'bottomlinks')
             ->append_code('</div><div id="editor"></div>', 'editor');
     }
 
@@ -54,6 +55,11 @@ class HeaderV extends Neo\View {
     public function raw()
     {
         return $this->append_code('<a href="?raw=' . $this->values['hash'] . '" class="navbtn">Raw</a>', 'raw');
+    }
+
+    public function bottomlinks()
+    {
+        return $this->append_code('<a href="?page=about" class="navbtn">About</a>', 'bottomlinks');
     }
 
 }
