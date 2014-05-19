@@ -13,7 +13,7 @@ class PastaM extends Neo\Model {
         $res = $query->fetch();
 
         if (empty($res)) {
-            return null;
+            return;
         }
         return $res;
     }
@@ -34,7 +34,7 @@ class PastaM extends Neo\Model {
         $query->bindValue('content', $content);
         $query->bindValue('visibility', 0, PDO::PARAM_INT);
         if ($query->execute() === false) {
-            return false;
+            return;
         }
         return $hash;
     }
