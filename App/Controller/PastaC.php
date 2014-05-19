@@ -51,8 +51,7 @@ class PastaC extends Neo\Controller {
                 ->assign('page_title', 'Your Pasta has been created avec successzz!')
                 ->entete(), 'header')
             ->append_view(Neo\id(new FooterV())
-                ->assign('readonly', true)
-                ->footer(), 'footer')
+                ->footer_readonly(), 'footer')
             ->render();
     }
 
