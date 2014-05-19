@@ -1,12 +1,6 @@
-<footer>
-    Pasta &mdash; A pastebin for elite coders by <a href="mailto:fabienwang@eliteheberg.fr">Fabien Wang</a> &amp;&amp; <a href="mailto:younishd@eliteheberg.fr">YouniS Bensalah</a>
-    <span class="aright">
-        <!-- Language list goes here -->
-        <select id="lang" onchange="loadLang();" disabled=disabled>
-            <option value="">IDUNNOWHATLANGITIS</option>
-        </select>
-    </span>
-</footer>
+<select id="lang" onchange="loadLang();" disabled=disabled>
+    <option value="">IDUNNOWHATLANGITIS</option>
+</select>
 <script>
 var editor = CodeMirror(document.getElementById('editor'), {
     value: document.getElementById('pastecontent').value,
