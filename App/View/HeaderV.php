@@ -13,7 +13,7 @@ class HeaderV extends Neo\View {
         // - fork
         // - raw
         // - editor
-        $this->add_marker('editor')->add_marker('raw')->add_marker('fork')->add_marker('paste');
+        $this->add_marker('editor')->add_marker('raw')->add_marker('fork')->add_marker('paste')->add_marker('new');
     }
 
     public function entete()
@@ -22,6 +22,14 @@ class HeaderV extends Neo\View {
             ->append_template('header.php')
             ->append_code('<div id="navleft">')
             ->append_code('</div><div id="editor"></div>', 'editor');
+    }
+
+    ///
+    /// Show the New button
+    ///
+    public function newz()
+    {
+        return $this->append_code('<a href="./" class="navbtn">New</a>', 'new');
     }
 
     ///

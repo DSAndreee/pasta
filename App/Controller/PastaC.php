@@ -97,6 +97,7 @@ class PastaC extends Neo\Controller {
             ->append_view(Neo\id(new HeaderV())
                 ->assign('page_title', 'Do what you want \'cause a pirate is free. You are a pirate.')
                 ->assign('hash', $hash)
+                ->newz()
                 ->raw()
                 ->fork()
                 ->entete(), 'header')
