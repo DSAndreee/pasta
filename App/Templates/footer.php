@@ -1,4 +1,4 @@
-<div id="footer">
+<footer>
     Pasta &mdash; A pastebin for elite coders by <a href="mailto:fabienwang@eliteheberg.fr">Fabien Wang</a> &amp;&amp; <a href="mailto:younishd@eliteheberg.fr">YouniS Bensalah</a>
     <span class="aright">
         <!-- Language list goes here -->
@@ -89,7 +89,7 @@
             <option value="z80">Z80</option>
         </select>
     </span>
-</div>
+</footer>
 <script>
 var editor = CodeMirror(document.getElementById('editor'), {
     value: document.getElementById('pastecontent').value,

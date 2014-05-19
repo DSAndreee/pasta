@@ -42,12 +42,21 @@ body{
 
 .navbtn {
     display: block;
-    width: 50px;
-    height: 50px;
-    background-color: #444;
+    width: 68px;
+    height: 46px;
     text-align: center;
-    border-radius: 8px;
-    border: 1px dashed #202;
+    border: 0px none;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 22px;
+    color: #888;
+    text-decoration: none;
+    font-size: 0.8em;
+    border-bottom: 1px solid #101010;
+}
+
+a.navbtn:hover {
+    background-color: #101010;
 }
 
 textarea.content{
@@ -76,7 +85,7 @@ textarea.content{
     font-size: 0.75em;
 }
 
-#footer {
+footer {
     background-color: #1a1a1a;
     color: #CCC;
     width: 100%;
@@ -88,6 +97,10 @@ textarea.content{
     text-shadow: 0 0 4px;
     font-size: 0.75em;
     text-align: center;
+}
+
+footer select {
+    color: #666;
 }
 
 .aright {
