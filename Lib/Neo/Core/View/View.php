@@ -119,6 +119,7 @@ abstract class View {
     public function render_once($value = true)
     {
         $this->render_once = (bool)$value;
+        return $this;
     }
 
     ///
