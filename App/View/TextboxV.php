@@ -30,7 +30,7 @@ class TextboxV extends Neo\View {
     ///
     public function url()
     {
-        return $this->append_code('<a href="<?php echo $this->get(\'url\'); ?>"><?php echo $this->get(\'url\'); ?></a>', 'default', 'php');
+        return $this->append_code('<div class="center"><div class="centeredbox"><?php echo $this->get(\'page_title\'); ?><br/><a href="<?php echo $this->get(\'url\'); ?>"><?php echo $this->get(\'url\'); ?></a></div></div>', 'default', 'php');
     }
 
 }

@@ -45,11 +45,13 @@ class PastaC extends Neo\Controller {
             ->append_view(Neo\id(new TextboxV())
                 ->assign('url', $this->complete_url() . '?hash=' . $hash)
                 ->assign('rawurl', $this->complete_url() . '?raw=' . $hash)
+                ->assign('page_title', 'Your Pasta has been created avec successzz!')
                 ->url())
             ->append_view(Neo\id(new HeaderV())
                 ->assign('page_title', 'Your Pasta has been created avec successzz!')
                 ->entete(), 'header')
             ->append_view(Neo\id(new FooterV())
+                ->assign('readonly', true)
                 ->footer(), 'footer')
             ->render();
     }

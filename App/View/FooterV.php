@@ -3,7 +3,7 @@ class FooterV extends Neo\View {
 
     public function footer()
     {
-        if (!empty($this->values['hash']))
+        if (!empty($this->values['hash']) || (!empty($this->values['readonly'])))
         {
             return $this->append_template('footer_readonly.php');
         }
