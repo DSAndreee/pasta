@@ -41,8 +41,7 @@ class PastaC extends Neo\Controller {
                     ->footer(), 'footer')
                 ->render();
         }
-        else
-        {
+        else {
             return $this->document
                 ->append_view(Neo\id(new TextboxV())
                     ->assign('msg', 'UR PASTA NOES EXISTINGZ')
@@ -128,8 +127,7 @@ class PastaC extends Neo\Controller {
                     ->footer_readonly(), 'footer')
                 ->render();
         }
-        else
-        {
+        else {
             return $this->document
                 ->append_view(Neo\id(new TextboxV())
                     ->assign('msg', 'UR PASTA NOES EXISTINGZ')
