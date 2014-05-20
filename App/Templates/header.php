@@ -5,6 +5,7 @@
     <meta name="description" content="Pasta, A pastebin for elite coders by Fabien Wang && YouniS Bensalah" />
     <meta charset="UTF-8">
     <link href="Style/neo.css" type="text/css" rel="stylesheet"/>
+    <link href="Style/icons.css" type="text/css" rel="stylesheet"/>
     <link rel="stylesheet" href="Vendor/CodeMirror/lib/codemirror.css">
     <script src="Vendor/CodeMirror/lib/codemirror.js"></script>
     <link rel="stylesheet" href="Vendor/CodeMirror/theme/monokai.css">
