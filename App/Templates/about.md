@@ -8,4 +8,4 @@ Developed with &hearts; by two awesome elite coderz, [Fabien Wang](mailto:fabien
 
 ## Fork it
 
-The source code is freely available on this [git repository](https://git.eliteheberg.fr/EliteCoders/pasta).
+The source code is freely available on [GitHub](https://github.com/fabienwang/pasta).
