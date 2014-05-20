@@ -38,6 +38,7 @@ class PastaC extends Neo\Controller {
                     ->entete()
                     ->paste(), 'header')
                 ->append_view(Neo\id(new FooterV())
+                    ->assign('syntax', $paste['syntax'])
                     ->footer(), 'footer')
                 ->render();
         }

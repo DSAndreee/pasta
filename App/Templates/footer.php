@@ -111,6 +111,19 @@ function loadLang() {
     CodeMirror.autoLoadMode(editor, lang);
 }
 
+
+var listlang = document.getElementById('lang');
+var syntax = "<?php echo $this->values['syntax']; ?>";
+for (i = 0; i < listlang.options.length; i++)
+{
+    if (listlang.options[i].value == syntax)
+    {
+        listlang.options[i].selected = true;
+        editor.setOption("mode", syntax);
+        CodeMirror.autoLoadMode(editor, syntax);
+    }
+}
+
 function save() {
     document.getElementById('pastecontent').value = editor.getValue();
 
