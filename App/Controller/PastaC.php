@@ -94,6 +94,7 @@ class PastaC extends Neo\Controller {
                 ->bottomlinks()
                 ->paste(), 'header')
             ->append_view(Neo\id(new FooterV())
+                ->assign('syntax', 'php')
                 ->footer(), 'footer')
             ->render();
     }
