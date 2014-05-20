@@ -2,7 +2,8 @@
 <select id="lang" onchange="loadLang();">
     <option value="apl">APL</option>
     <option value="asterisk">Asterisk</option>
-    <option value="clike">C, C++, C#</option>
+    <option value="clike">C/C++</option>
+    <option value="clike">C#</option>
     <option value="clojure">Clojure</option>
     <option value="cobol">COBOL</option>
     <option value="coffeescript">CoffeeScript</option>
@@ -112,8 +113,11 @@ function loadLang() {
 
 function save() {
     document.getElementById('pastecontent').value = editor.getValue();
+
+    // keep track of syntax highlighting
+    document.getElementById('syntax').value = document.getElementById('lang').value;
+
     //submit the form
     document.forms.paste.submit();
 }
-
 </script>

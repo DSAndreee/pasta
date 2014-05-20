@@ -28,8 +28,8 @@ class PastaC extends Neo\Controller {
         $textbox = new TextboxV();
         $textbox->editbox();
 
-        if ($paste['content'] !== null) {
-            $textbox->assign('content', $paste['content']);
+        if ($paste !== null) {
+            $textbox->assign($paste);
         }
 
         return $this->document
@@ -49,13 +49,13 @@ class PastaC extends Neo\Controller {
     public function paste()
     {
         // check if content request is not empty
-        if (Neo\blank($content = (string)$this->match['request']['content'])) {
+        if (Neo\blank($content = (string)$this->match['request']['content']) || Neo\blank($syntax = (string)$this->match['request']['syntax'])) {
             return $this->editbox();
         }
 
         // save to db
         $model = new PastaM();
-        $hash = $model->create_paste($content);
+        $hash = $model->create_paste($content, $syntax);
         if ($hash === null) {
             // on failure go back to editbox
             return $this->editbox();
@@ -96,7 +96,7 @@ class PastaC extends Neo\Controller {
         $textbox->readbox();
 
         if ($paste !== null) {
-            $textbox->assign('paste', $paste);
+            $textbox->assign($paste);
         }
 
         return $this->document
@@ -110,7 +110,7 @@ class PastaC extends Neo\Controller {
                 ->entete()
                 ->bottomlinks(), 'header')
             ->append_view(Neo\id(new FooterV())
-                ->assign('hash', $hash)
+                ->assign('syntax', $paste['syntax'])
                 ->footer_readonly(), 'footer')
             ->render();
     }

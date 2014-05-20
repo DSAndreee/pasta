@@ -1,6 +1,3 @@
-<select id="lang" onchange="loadLang();" disabled=disabled>
-    <option value="">IDUNNOWHATLANGITIS</option>
-</select>
 <script>
 var editor = CodeMirror(document.getElementById('editor'), {
     value: document.getElementById('pastecontent').value,
@@ -20,16 +17,7 @@ var editor = CodeMirror(document.getElementById('editor'), {
 
 CodeMirror.modeURL = 'Vendor/CodeMirror/mode/%N/%N.js';
 
-function loadLang() {
-    var lang = document.getElementById('lang').value;
-    editor.setOption("mode", lang);
-    CodeMirror.autoLoadMode(editor, lang);
-}
-
-function save() {
-    document.getElementById('pastecontent').value = editor.getValue();
-    //submit the form
-    document.forms.paste.submit();
-}
-
+// load given syntax highlight
+editor.setOption("mode", "<?php echo $this->get('syntax'); ?>");
+CodeMirror.autoLoadMode(editor, "<?php echo $this->get('syntax'); ?>");
 </script>

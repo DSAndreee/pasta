@@ -7,7 +7,8 @@ CREATE TABLE IF NOT EXISTS `pastes` (
   `hash` varchar(40) NOT NULL,
   `created_on` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `content` text NOT NULL,
-  `visibility` tinyint(4) NOT NULL
+  `visibility` tinyint(4) NOT NULL,
+  `syntax` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
