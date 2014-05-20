@@ -60,6 +60,12 @@ body{
     border-bottom: 1px solid #101010;
 }
 
+a.about {
+    color: #D00;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
 .bignavbtn {
     display: block;
     width: 68px;
