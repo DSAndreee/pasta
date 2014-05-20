@@ -45,10 +45,10 @@ class PastaC extends Neo\Controller {
         {
             return $this->document
                 ->append_view(Neo\id(new TextboxV())
-                    ->assign('msg', 'U PASTA NOES EXISTINGZ')
+                    ->assign('msg', 'UR PASTA NOES EXISTINGZ')
                     ->msg())
                 ->append_view(Neo\id(new HeaderV())
-                    ->assign('page_title', 'U NOES EXISTINGZ')
+                    ->assign('page_title', 'UR PASTA NOES EXISTINGZ')
                     ->entete())
                 ->append_view(Neo\id(new FooterV())
                     ->footer_readonly(), 'footer')
@@ -130,10 +130,10 @@ class PastaC extends Neo\Controller {
         {
             return $this->document
                 ->append_view(Neo\id(new TextboxV())
-                    ->assign('msg', 'U PASTA NOES EXISTINGZ')
+                    ->assign('msg', 'UR PASTA NOES EXISTINGZ')
                     ->msg())
                 ->append_view(Neo\id(new HeaderV())
-                    ->assign('page_title', 'U NOES EXISTINGZ')
+                    ->assign('page_title', 'UR PASTA NOES EXISTINGZ')
                     ->entete())
                 ->append_view(Neo\id(new FooterV())
                     ->footer_readonly(), 'footer')
@@ -153,7 +153,7 @@ class PastaC extends Neo\Controller {
         if (empty($paste['content'])) {
             header('Content-Type: text/plain; charset=UTF-8');
             http_response_code(404);
-            return 'U PASTA NOES EXISTINGZ';
+            return 'UR PASTA NOES EXISTINGZ';
         }
 
         // just return the raw code directly!
