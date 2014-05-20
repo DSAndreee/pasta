@@ -168,16 +168,11 @@ class PastaC extends Neo\Controller {
     ///
     public function about()
     {
-        $msg = '<h1>Pasta - A pastebin for pirates</h1>
-        Pasta stands for «PHP Ain\'t So Terrible After all»<br>
-        So… it\'s written in PHP.<br>
-        Written with <3 by two awesome elite coderz.<br>
-        <br>
-        <a href="https://git.eliteheberg.fr/EliteCoders/pasta" class="about">Git repository</a>';
+        $about = new AboutV();
 
         return $this->document
             ->append_view(Neo\id(new TextboxV())
-                ->assign('msg', $msg)
+                ->assign('msg', $about)
                 ->msg())
             ->append_view(Neo\id(new HeaderV())
                 ->assign('page_title', 'UR PASTA NOES EXISTINGZ')

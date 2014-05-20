@@ -60,10 +60,13 @@ body{
     border-bottom: 1px solid #101010;
 }
 
-a.about {
-    color: #D00;
+.about a{
+    color: #ade0de;
     text-decoration: none;
-    text-transform: uppercase;
+}
+
+.about a:hover{
+    color: #00d0df;
 }
 
 .bignavbtn {
