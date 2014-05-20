@@ -1,4 +1,6 @@
 <script>
+document.getElementById('lang').disabled = "disabled";
+
 var editor = CodeMirror(document.getElementById('editor'), {
     value: document.getElementById('pastecontent').value,
     lineNumbers: true,
