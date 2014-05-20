@@ -39,6 +39,7 @@ class PastaC extends Neo\Controller {
                     ->paste(), 'header')
                 ->append_view(Neo\id(new FooterV())
                     ->assign('syntax', $paste['syntax'])
+                    ->lang_list()
                     ->footer(), 'footer')
                 ->render();
         }
@@ -53,6 +54,7 @@ class PastaC extends Neo\Controller {
                     ->entete()
                     ->bottomlinks(), 'header')
                 ->append_view(Neo\id(new FooterV())
+                    ->lang_list()
                     ->footer_readonly(), 'footer')
                 ->render();
         }
@@ -95,6 +97,7 @@ class PastaC extends Neo\Controller {
                 ->paste(), 'header')
             ->append_view(Neo\id(new FooterV())
                 ->assign('syntax', 'php')
+                ->lang_list()
                 ->footer(), 'footer')
             ->render();
     }
@@ -126,6 +129,7 @@ class PastaC extends Neo\Controller {
                     ->bottomlinks(), 'header')
                 ->append_view(Neo\id(new FooterV())
                     ->assign('syntax', $paste['syntax'])
+                    ->lang_list()
                     ->footer_readonly(), 'footer')
                 ->render();
         }
@@ -140,6 +144,7 @@ class PastaC extends Neo\Controller {
                     ->entete()
                     ->bottomlinks(), 'header')
                 ->append_view(Neo\id(new FooterV())
+                    ->lang_list()
                     ->footer_readonly(), 'footer')
                 ->render();
         }
