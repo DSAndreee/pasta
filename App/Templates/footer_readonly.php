@@ -11,6 +11,7 @@ var editor = CodeMirror(document.getElementById('editor'), {
     autoCloseBrackets: true,
     matchBrackets: true,
     showCursorWhenSelecting: true,
+    cursorBlinkRate: 0, //Disable cursor blinking
     theme: "monokai",
     readOnly: true
 });
