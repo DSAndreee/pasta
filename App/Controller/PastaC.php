@@ -175,7 +175,7 @@ class PastaC extends Neo\Controller {
                 ->assign('msg', $about)
                 ->msg())
             ->append_view(Neo\id(new HeaderV())
-                ->assign('page_title', 'UR PASTA NOES EXISTINGZ')
+                ->assign('page_title', 'Aboutz')
                 ->newz()
                 ->entete()
                 ->bottomlinks(), 'header')
