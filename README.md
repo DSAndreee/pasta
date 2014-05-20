@@ -4,9 +4,7 @@
 
 ### Credits
 
-Fabien Wang [fabienwang@eliteheberg.fr](mailto:fabienwang@eliteheberg.fr)
-
-YouniS Bensalah [younishd@eliteheberg.fr](mailto:younishd@eliteheberg.fr)
+Fabien Wang [fabienwang@eliteheberg.fr](mailto:fabienwang@eliteheberg.fr) && YouniS Bensalah [younishd@eliteheberg.fr](mailto:younishd@eliteheberg.fr)
 
 ### License
 
