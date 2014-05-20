@@ -30,7 +30,7 @@ class HeaderV extends Neo\View {
     ///
     public function newz()
     {
-        return $this->append_code('<a href="./" class="navbtn" title="New"><i class="icon-new"></i></a>', 'new');
+        return $this->append_code('<a href="./" class="navbtn" title="New"><i class="icon-new icon-2x"></i></a>', 'new');
     }
 
     ///
@@ -38,7 +38,7 @@ class HeaderV extends Neo\View {
     ///
     public function fork()
     {
-        return $this->append_code('<a href="?fork=' . $this->values['hash'] . '" class="navbtn" title="Fork"><i class="icon-fork"></i></a>', 'fork');
+        return $this->append_code('<a href="?fork=' . $this->values['hash'] . '" class="navbtn" title="Fork"><i class="icon-fork icon-2x"></i></a>', 'fork');
     }
 
     ///
@@ -46,7 +46,7 @@ class HeaderV extends Neo\View {
     ///
     public function paste()
     {
-        return $this->append_code('<a href="#" onClick="save()" class="navbtn" title="Paste"><i class="icon-paste"></i></a>', 'paste');
+        return $this->append_code('<a href="#" onClick="save()" class="navbtn" title="Paste"><i class="icon-paste icon-2x"></i></a>', 'paste');
     }
 
     //
@@ -54,7 +54,7 @@ class HeaderV extends Neo\View {
     ///
     public function raw()
     {
-        return $this->append_code('<a href="?raw=' . $this->values['hash'] . '" class="navbtn" title="Raw"><i class="icon-raw"></i></a>', 'raw');
+        return $this->append_code('<a href="?raw=' . $this->values['hash'] . '" class="navbtn" title="Raw"><i class="icon-raw icon-2x"></i></a>', 'raw');
     }
 
     public function bottomlinks()
