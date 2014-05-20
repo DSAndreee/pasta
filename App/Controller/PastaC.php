@@ -30,17 +30,30 @@ class PastaC extends Neo\Controller {
 
         if ($paste !== null) {
             $textbox->assign($paste);
-        }
 
-        return $this->document
-            ->append_view($textbox)
-            ->append_view(Neo\id(new HeaderV())
-                ->assign('page_title', 'Forkz')
-                ->entete()
-                ->paste(), 'header')
-            ->append_view(Neo\id(new FooterV())
-                ->footer(), 'footer')
-            ->render();
+            return $this->document
+                ->append_view($textbox)
+                ->append_view(Neo\id(new HeaderV())
+                    ->assign('page_title', 'Forkz')
+                    ->entete()
+                    ->paste(), 'header')
+                ->append_view(Neo\id(new FooterV())
+                    ->footer(), 'footer')
+                ->render();
+        }
+        else
+        {
+            return $this->document
+                ->append_view(Neo\id(new TextboxV())
+                    ->assign('msg', 'U PASTA NOES EXISTINGZ')
+                    ->msg())
+                ->append_view(Neo\id(new HeaderV())
+                    ->assign('page_title', 'U NOES EXISTINGZ')
+                    ->entete())
+                ->append_view(Neo\id(new FooterV())
+                    ->footer_readonly(), 'footer')
+                ->render();
+        }
     }
 
     ///
@@ -97,22 +110,35 @@ class PastaC extends Neo\Controller {
 
         if ($paste !== null) {
             $textbox->assign($paste);
-        }
 
-        return $this->document
-            ->append_view($textbox)
-            ->append_view(Neo\id(new HeaderV())
-                ->assign('page_title', 'Do what you want \'cause a pirate is free. You are a pirate.')
-                ->assign('hash', $hash)
-                ->newz()
-                ->raw()
-                ->fork()
-                ->entete()
-                ->bottomlinks(), 'header')
-            ->append_view(Neo\id(new FooterV())
-                ->assign('syntax', $paste['syntax'])
-                ->footer_readonly(), 'footer')
-            ->render();
+            return $this->document
+                ->append_view($textbox)
+                ->append_view(Neo\id(new HeaderV())
+                    ->assign('page_title', 'Do what you want \'cause a pirate is free. You are a pirate.')
+                    ->assign('hash', $hash)
+                    ->newz()
+                    ->raw()
+                    ->fork()
+                    ->entete()
+                    ->bottomlinks(), 'header')
+                ->append_view(Neo\id(new FooterV())
+                    ->assign('syntax', $paste['syntax'])
+                    ->footer_readonly(), 'footer')
+                ->render();
+        }
+        else
+        {
+            return $this->document
+                ->append_view(Neo\id(new TextboxV())
+                    ->assign('msg', 'U PASTA NOES EXISTINGZ')
+                    ->msg())
+                ->append_view(Neo\id(new HeaderV())
+                    ->assign('page_title', 'U NOES EXISTINGZ')
+                    ->entete())
+                ->append_view(Neo\id(new FooterV())
+                    ->footer_readonly(), 'footer')
+                ->render();
+        }
     }
 
     ///
@@ -125,7 +151,9 @@ class PastaC extends Neo\Controller {
         $paste = $model->get_paste($hash);
 
         if (empty($paste['content'])) {
-            return $this->editbox();
+            header('Content-Type: text/plain; charset=UTF-8');
+            http_response_code(404);
+            return 'U PASTA NOES EXISTINGZ';
         }
 
         // just return the raw code directly!

@@ -25,6 +25,27 @@ body{
     text-align: center;
 }
 
+.center {
+    text-align: center;
+    margin-left: 70px;
+    margin-top: 70px;
+}
+
+.centeredbox {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+    z-index: 9999;
+    position: relative;
+    color: #CCC;
+    font-size: 1.3em;
+    background-color: #444;
+    border-radius: 200px;
+    width: 70%;
+    text-shadow: 0 0 10px;
+}
+
 .navbtn {
     display: block;
     width: 68px;
