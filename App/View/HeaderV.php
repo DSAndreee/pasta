@@ -59,7 +59,7 @@ class HeaderV extends Neo\View {
 
     public function bottomlinks()
     {
-        return $this->append_code('<a href="?action=about" class="bignavbtn">Pasta</a>', 'bottomlinks');
+        return $this->append_code('<a href="?action=about" class="bignavbtn" title="About">Pasta</a>', 'bottomlinks');
     }
 
 }
