@@ -4,7 +4,7 @@
 
 ### Credits
 
-Fabien Wang [fabienwang@eliteheberg.fr](mailto:fabienwang@eliteheberg.fr) && YouniS Bensalah [younishd@eliteheberg.fr](mailto:younishd@eliteheberg.fr)
+Developed with &hearts; by two awesome elite coderz, [Fabien Wang](mailto:fabienwang@eliteheberg.fr) &amp;&amp; [YouniS Bensalah](mailto:younishd@eliteheberg.fr).
 
 ### License
 
