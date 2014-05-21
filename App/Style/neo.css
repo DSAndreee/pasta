@@ -126,6 +126,18 @@ select#lang {
     position: fixed;
     bottom: 20px;
     right: 0px;
+    width: 160px;
+    font-size: 0.75em;
+    margin-right: 20px;
+    color: #000;
+    z-index: 50;
+}
+
+select#sel_expire {
+    position: fixed;
+    bottom: 20px;
+    right: 180px;
+    width: 160px;
     font-size: 0.75em;
     margin-right: 20px;
     color: #000;

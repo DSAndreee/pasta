@@ -39,6 +39,7 @@ class PastaC extends Neo\Controller {
                     ->paste(), 'header')
                 ->append_view(Neo\id(new FooterV())
                     ->assign('syntax', $paste['syntax'])
+                    ->expiration_list()
                     ->lang_list()
                     ->footer(), 'footer')
                 ->render();
@@ -66,13 +67,13 @@ class PastaC extends Neo\Controller {
     public function paste()
     {
         // check if content request is not empty
-        if (Neo\blank($content = (string)$this->match['request']['content']) || Neo\blank($syntax = (string)$this->match['request']['syntax'])) {
+        if (Neo\blank($content = (string)$this->match['request']['content']) || Neo\blank($syntax = (string)$this->match['request']['syntax']) || Neo\blank($expire = (string)$this->match['request']['expire'])) {
             return $this->editbox();
         }
 
         // save to db
         $model = new PastaM();
-        $hash = $model->create_paste($content, $syntax);
+        $hash = $model->create_paste($content, $syntax, $expire);
         if ($hash === null) {
             // on failure go back to editbox
             return $this->editbox();
@@ -97,6 +98,7 @@ class PastaC extends Neo\Controller {
                 ->paste(), 'header')
             ->append_view(Neo\id(new FooterV())
                 ->assign('syntax', 'php')
+                ->expiration_list()
                 ->lang_list()
                 ->footer(), 'footer')
             ->render();
