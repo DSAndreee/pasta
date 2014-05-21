@@ -6,8 +6,7 @@ class PastaM extends Neo\Model {
     ///
     public function get_paste($hash)
     {
-        $sql = 'SELECT * FROM pastes WHERE hash = :hash';
-        $query = $this->db->prepare($sql);
+        $query = $this->db->prepare('SELECT * FROM pastes WHERE hash = :hash');
         $query->bindValue('hash', $hash);
         $query->execute();
         $res = $query->fetch();
@@ -15,6 +14,18 @@ class PastaM extends Neo\Model {
         if (empty($res)) {
             return;
         }
+
+        //expired paste? => Delete it
+        $date = new DateTime('now');
+        $expire = new DateTime($res['delete_after']);
+        if ($expire < $date)
+        {
+            $query = $this->db->prepare('DELETE FROM pastes WHERE hash = :hash');
+            $query->bindValue('hash', $hash);
+            $query->execute();
+            return;
+        }
+
         return $res;
     }
 
@@ -24,10 +35,8 @@ class PastaM extends Neo\Model {
     public function create_paste($content, $syntax, $expire)
     {
         $date = new DateTime('now');
+        //Neo\neo('$expire vaut: '.$expire);
         switch ($expire) {
-            case 'open':
-                $date = new DateTime('1970-01-01');
-                break;
             case '1hour':
                 $date->modify('+1 hour');
                 break;
@@ -47,13 +56,15 @@ class PastaM extends Neo\Model {
                 $date = new DateTime('9999-12-31');
                 break;
         }
-        $sql = 'INSERT INTO pastes (hash, content, visibility, syntax) VALUES (:hash, :content, :visibility, :syntax, :expiration)';
+
+        $sql = 'INSERT INTO pastes (hash, content, visibility, syntax, delete_after) VALUES (:hash, :content, :visibility, :syntax, :expiration)';
 
         // generate a hash
         $hash = sha1(time() . $content);
 
         //expiration date
-        $expiration_date = $date->format('Y-m-d H:i:sP');
+        $expiration_date = $date->format('Y-m-d H:i:s');
+        //Neo\neo('$date vaut: '.$expiration_date);
 
         // insert into db
         $query = $this->db->prepare($sql);
