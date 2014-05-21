@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS `pastes` (
   `content` text NOT NULL,
   `visibility` tinyint(4) NOT NULL,
   `syntax` varchar(128) NOT NULL,
-  `expiration` datetime NOT NULL
+  `delete_after` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
