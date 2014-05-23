@@ -79,7 +79,6 @@ function boot($config_dir = '../Config/')
         ->source('Neo\DialogWidget', $_NEO['PATHS']['LIB_DIR'] . 'Neo/Core/Widget/Dialog/DialogWidget.php')
         ->source('Neo\View', $_NEO['PATHS']['LIB_DIR'] . 'Neo/Core/View/View.php')
         ->source('Neo\DocumentV', $_NEO['PATHS']['LIB_DIR'] . 'Neo/Core/View/DocumentV.php')
-        ->source('Neo\MarkdownW', $_NEO['PATHS']['LIB_DIR'] . 'Neo/Core/View/MarkdownW.php')
         ->source('Neo\Marker', $_NEO['PATHS']['LIB_DIR'] . 'Neo/Core/View/Marker.php')
         ->source('Neo\Markers', $_NEO['PATHS']['LIB_DIR'] . 'Neo/Core/Markers/Markers.php')
         ->source('Neo\Error', $_NEO['PATHS']['LIB_DIR'] . 'Neo/Core/Error/Error.php')
@@ -89,7 +88,7 @@ function boot($config_dir = '../Config/')
 
         ->source('Neo\Counter', $_NEO['PATHS']['LIB_DIR'] . 'Neo/Shell/Counter/Counter.php')
         ->source('Neo\Widget', $_NEO['PATHS']['LIB_DIR'] . 'Neo/Shell/Widget/Widget.php')
-        ->source('Neo\Widget', $_NEO['PATHS']['LIB_DIR'] . 'Neo/Shell/Widget/Widgets/MarkdownW.php')
+        ->source('Neo\MarkdownW', $_NEO['PATHS']['LIB_DIR'] . 'Neo/Shell/Widget/Widgets/MarkdownW.php')
 
         ->source('Neo\Parsedown', $_NEO['PATHS']['LIB_DIR'] . 'Neo/Vendor/Parsedown/Parsedown.php');
 
