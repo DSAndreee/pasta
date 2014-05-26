@@ -6,9 +6,11 @@ class FooterV extends Neo\View {
         parent::__construct($flags, $data);
 
         // - expiration_list
+        // - expiration_date
         // - list
         // - default
         $this->add_marker('expiration_list', 'default', true);
+        $this->add_marker('expiration_date', 'default', true);
         $this->add_marker('list', 'default', true);
     }
 
@@ -20,6 +22,11 @@ class FooterV extends Neo\View {
     public function footer_readonly()
     {
         return $this->append_template('footer_readonly.php');
+    }
+
+    public function expiration_date()
+    {
+        return $this->append_template('expiration_date.php', 'expiration_date');
     }
 
     public function expiration_list()
