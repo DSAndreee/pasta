@@ -118,11 +118,12 @@ class PastaC extends Neo\Controller {
 
         if ($paste !== null) {
             $textbox->assign($paste);
-
+            /*
             $date1 = new DateTime($paste['created_on']);
             $date2 = new DateTime($paste['delete_after']);
             $interval = $date1->diff($date2);
-
+            //var_dump($interval);
+            */
             return $this->document
                 ->append_view($textbox)
                 ->append_view(Neo\id(new HeaderV())
@@ -135,9 +136,9 @@ class PastaC extends Neo\Controller {
                     ->bottomlinks(), 'header')
                 ->append_view(Neo\id(new FooterV())
                     ->assign('syntax', $paste['syntax'])
-                    ->assign('expires_at', $paste['delete_after'])
+                    //->assign('expires_at', $interval->format('%d day(s) %h hour(s) %i minute(s)'))
                     ->lang_list()
-                    ->expiration_date()
+                    //->expiration_date()
                     ->footer_readonly(), 'footer')
                 ->render();
         }
