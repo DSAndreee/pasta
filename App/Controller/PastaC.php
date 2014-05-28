@@ -128,7 +128,7 @@ class PastaC extends Neo\Controller {
             {
               $date2 = new DateTime();
               $interval = $date1->diff($date2);
-              var_dump($interval);
+              //var_dump($interval);
               $str_interval = '';
               if ($interval->format('%m') > '0') {
                 $str_interval .= $interval->format('%m month(s) ');
