@@ -15,6 +15,12 @@ class PastaM extends Neo\Model {
             return;
         }
 
+        //DELETE ALL EXPIRED PASTES
+        $query = $this->db->prepare('DELETE FROM pastes WHERE delete_after < NOW()');
+        $query->execute();
+        return;
+
+        /*
         //expired paste? => Delete it
         $date = new DateTime('now');
         $expire = new DateTime($res['delete_after']);
@@ -24,7 +30,7 @@ class PastaM extends Neo\Model {
             $query->bindValue('hash', $hash);
             $query->execute();
             return;
-        }
+        }*/
 
         return $res;
     }
