@@ -1,3 +1,5 @@
 Expires in: <select id="sel_expire" >
-    <option value=""><?php echo $this->values['expires_at']; ?></option>
+    <optgroup label="Expires in">
+      <option value=""><?php echo $this->values['expires_at']; ?></option>
+    </optgroup>
 </select>
