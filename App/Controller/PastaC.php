@@ -120,17 +120,28 @@ class PastaC extends Neo\Controller {
             $textbox->assign($paste);
 
             $date1 = new DateTime($paste['delete_after']);
-            $date2 = new DateTime();
-            $interval = $date1->diff($date2);
-            $str_interval = '';
-            if ($interval->format('%d') > '0') {
-              $str_interval .= $interval->format('%d day(s)');
+            if ($date1->format('Ymd') == '99991231')
+            {
+              $str_interval = 'Never';
             }
-            if ($interval->format('%h') > '0') {
-              $str_interval .= ' '.$interval->format('%h hour(s)');
-            }
-            if ($interval->format('%i') > '0') {
-              $str_interval .= ' '.$interval->format('%i minute(s)');
+            else
+            {
+              $date2 = new DateTime();
+              $interval = $date1->diff($date2);
+              var_dump($interval);
+              $str_interval = '';
+              if ($interval->format('%m') > '0') {
+                $str_interval .= $interval->format('%m month(s) ');
+              }
+              if ($interval->format('%d') > '0') {
+                $str_interval .= $interval->format('%d day(s) ');
+              }
+              if ($interval->format('%h') > '0') {
+                $str_interval .= $interval->format('%h hour(s) ');
+              }
+              if ($interval->format('%i') > '0') {
+                $str_interval .= $interval->format('%i minute(s)');
+              }
             }
 
             return $this->document
