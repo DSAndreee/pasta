@@ -18,7 +18,6 @@ class PastaM extends Neo\Model {
         //DELETE ALL EXPIRED PASTES
         $query = $this->db->prepare('DELETE FROM pastes WHERE delete_after < NOW()');
         $query->execute();
-        return;
 
         /*
         //expired paste? => Delete it
