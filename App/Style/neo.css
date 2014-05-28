@@ -102,6 +102,7 @@ a.navbtn:hover {
     bottom: 0;
     left: 70px;
     background-color: #272822; /*monokai*/
+    font-size: 1.25em;
 }
 .pastebtn{
     position: absolute;
