@@ -7,7 +7,10 @@ class AboutV extends Neo\View {
         parent::__construct($flags, $data);
 
         // here we go
-        $this->append_code('<div class="about">')->append_template('about.md')->append_code('</div>');
+        $this->append_code('<div class="about">')
+             ->append_template('about.md')
+             ->append_code('<h2 style="color: gold">WE KINDLY HOSTED '.$data['total'].' PASTAS</h2>')
+             ->append_code('</div>');
     }
 
 }

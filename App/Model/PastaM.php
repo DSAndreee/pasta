@@ -36,6 +36,23 @@ class PastaM extends Neo\Model {
     }
 
     ///
+    /// Retrieve the total # of hosted pastas here
+    ///
+    public function get_total()
+    {
+        $query = $this->db->prepare('SHOW TABLE STATUS WHERE Name=:table');
+        $query->bindValue('table', 'pastes');
+        $query->execute();
+        $res = $query->fetch();
+
+        if (empty($res)) {
+            return;
+        }
+
+        return $res['Auto_increment'] - 1;
+    }
+
+    ///
     /// Add a paste to the database and return the hash.
     ///
     public function create_paste($content, $syntax, $expire)

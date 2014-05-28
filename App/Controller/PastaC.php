@@ -204,7 +204,9 @@ class PastaC extends Neo\Controller {
     ///
     public function about()
     {
-        $about = new AboutV();
+        $model = new PastaM();
+        $total = $model->get_total();
+        $about = new AboutV(null, array('total'=> $total));
 
         return $this->document
             ->append_view(Neo\id(new TextboxV())
