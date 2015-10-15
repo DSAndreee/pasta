@@ -16,13 +16,21 @@ var editor = CodeMirror(document.getElementById('editor'), {
 
 CodeMirror.modeURL = 'Vendor/CodeMirror/mode/%N/%N.js';
 
-function loadLang() {
+function loadLang()
+{
     var lang = document.getElementById('lang').value;
     editor.setOption("mode", lang);
     CodeMirror.autoLoadMode(editor, lang);
 }
 
+//This function sets the expiration option
+function changeExpire()
+{
+    var l_expire = document.getElementById('sel_expire').value;
+    document.getElementById('expire').value = l_expire;
+}
 
+//This is to load the right list item and the syntax highlighter at the same time
 var listlang = document.getElementById('lang');
 var syntax = "<?php echo $this->values['syntax']; ?>";
 for (i = 0; i < listlang.options.length; i++)

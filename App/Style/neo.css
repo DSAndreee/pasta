@@ -36,14 +36,13 @@ body{
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    padding: 40px;
+    padding: 20px;
     z-index: 9999;
     position: relative;
     color: #CCC;
     font-size: 1.3em;
     background-color: #444;
     width: 70%;
-    text-shadow: 0 0 10px;
 }
 
 .navbtn {
@@ -102,6 +101,7 @@ a.navbtn:hover {
     bottom: 0;
     left: 70px;
     background-color: #272822; /*monokai*/
+    font-size: 1.25em;
 }
 .pastebtn{
     position: absolute;
@@ -126,6 +126,18 @@ select#lang {
     position: fixed;
     bottom: 20px;
     right: 0px;
+    width: 160px;
+    font-size: 0.75em;
+    margin-right: 20px;
+    color: #000;
+    z-index: 50;
+}
+
+select#sel_expire {
+    position: fixed;
+    bottom: 20px;
+    right: 180px;
+    width: 160px;
     font-size: 0.75em;
     margin-right: 20px;
     color: #000;
